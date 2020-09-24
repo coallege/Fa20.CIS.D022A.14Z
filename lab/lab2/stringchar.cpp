@@ -6,32 +6,29 @@
 #include <string>
 using namespace std;
 
-// Definition of constants
-const string FAVORITESODA = "Dr. Dolittle";	// use double quotes for strings 
-const char BESTRATING = 'A';				// use single quotes for characters
+const string FAVORITESODA = "Dr. Dolittle";
+const char BESTRATING = 'A';
 
-int main()
-{
-   char rating;			// 2nd highest product rating
-   string favoriteSnack;	// most preferred snack
-   int numberOfPeople;		// the number of people in the survey
-   int topChoiceTotal;		// the number of people who prefer the top choice
+int main() {
+	char rating;
+	string favoriteSnack;
+	int numberOfPeople;
+	int topChoiceTotal;
 
-   // Fill in the code to do the following:
-   // Assign the value of "crackers" to favoriteSnack
-   // Assign a grade of 'B' to rating
-   // Assign the number 250 to the numberOfPeople
-   // Assign the number 148 to the topChoiceTotal
+	favoriteSnack = "crackers";
+	rating = 'B';
+	numberOfPeople = 250;
+	topChoiceTotal = 148;
 
-   // Fill in the blanks of the following:
-   cout << "The preferred soda is " << << endl; 
-   cout << "The preferred snack is " << << endl; 
-   cout << "Out of " << << " people "
-       << << " chose these items!" << endl;
-   cout << "Each of these products were given a rating of " << ;
-   cout << " from our expert tasters" << endl;
-   cout << "The other products were rated no higher than a " << rating
-       << endl;
-
-   return 0;
+	// I would like to point out that `<< endl` is really inefficient since it
+	// flushes stdout every line. Ideally, you would wait till you're done writing
+	// to cout and then only have that endl on the last line
+	cout << "The preferred soda is " << FAVORITESODA << endl; 
+	cout << "The preferred snack is " << favoriteSnack << endl; 
+	cout << "Out of " << numberOfPeople << " people " << endl;
+	cout << topChoiceTotal << " chose these items!" << endl;
+	cout << "Each of these products were given a rating of " << BESTRATING;
+	cout << " from our expert tasters" << endl;
+	cout << "The other products were rated no higher than a " << rating;
+	cout << endl;
 }
