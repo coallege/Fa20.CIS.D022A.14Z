@@ -6,15 +6,17 @@
 #include <iostream>
 using namespace std;
 
-constexpr double PI = 3.14;
-constexpr double RADIUS = 5.4;
+const double PI = 3.14;
+const double RADIUS = 5.4;
 
 int main() {
-	double area{PI * RADIUS * RADIUS};
-	double diameter{RADIUS * 2};
+	double area;
+	int circumference;
+
+	area = {PI * RADIUS * RADIUS};
 	// copy initialization (using the = instead of the {})
 	// will allow truncation without an explicit cast
-	int circumference = PI * diameter;
+	circumference = PI * RADIUS * 2;
 	cout << "The circumference of the circle is " << circumference << endl;
 	cout << "The area of the circle is " << area << endl;
 }

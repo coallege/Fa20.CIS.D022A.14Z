@@ -4,7 +4,7 @@ Against my style, I'm going to use tabs since it's what the prof probably wants
 to see. Nobody wants to see my garbage three space indentation except that chill
 SQL Professor. Also, I like naming my files `.cxx` but I'll put up with `cpp`.
 I know, I'm basically a hero at this point for dealing with that. You can email
-me my awards. That being said, let's bikeshed a little harder, which file ending
+me my awards. That being said, let's bikeshed a little harder. Which file ending
 is truly the superior one? I would argue that `.cc`, while being very nice looking,
 can be easily confused with the shell command `cc`, which compiles C instead
 of C++. `.cc` does have the advantage of header files being `.hh`, which is good
