@@ -1,19 +1,10 @@
+include ../../Makefile
+
 artifacts := name.exe circlearea.exe stringchar.exe
 
-all: $(artifacts)
+~all: $(artifacts)
 
-%.exe: %.cpp
-	clang++ $< -o $@
-
-run~%: %.exe
-	./$<
-
-rdl~%: %.exe
-	./$<
-	del $<
-
-del~%: %.exe
-	del $<
+~rdl-all: ~cls rdl~name rdl~circlearea rdl~stringchar
 
 clean: $(artifacts)
 	del $^
