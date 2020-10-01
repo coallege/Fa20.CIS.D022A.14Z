@@ -7,13 +7,18 @@
 using namespace std;
 
 int main() {
+	const char *name  = "Cole Gannon";
+	const char *addr0 = "7880 McClellan Rd";
+	const char *addr1 = "Cupertino, CA. 95014";
+	const char *phone = "408-257-9985";
+
 	cout <<
 		"************\n"
-		"    Programmer: Cole Gannon\n"
-		"                7880 McClellan Rd\n"
-		"                Cupertino, CA. 95014\n"
+		"    Programmer: " << name << "\n"
+		"                " << addr0 << "\n"
+		"                " << addr1 << "\n"
 		"\n"
-		"     Telephone: 408-257-9985\n"
+		"     Telephone: " << phone << "\n"
 		"\n"
-		"************\n";
+		"************" << endl;
 }

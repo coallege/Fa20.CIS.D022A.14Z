@@ -11,6 +11,7 @@ const double RADIUS = 5.4;
 
 int main() {
 	double area;
+	// 2.2.2: changing float to int truncates results
 	int circumference;
 
 	area = {PI * RADIUS * RADIUS};

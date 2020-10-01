@@ -6,11 +6,15 @@
 #include <string>
 using namespace std;
 
+// 2.4.3: It is not possible to change this
+//        value within the main program.
 const string FAVORITESODA = "Dr. Dolittle";
 const char BESTRATING = 'A';
 
 int main() {
 	char rating;
+	// 2.4.4: It is possible to change favoriteSnack
+	//        I do it below.
 	string favoriteSnack;
 	int numberOfPeople;
 	int topChoiceTotal;
