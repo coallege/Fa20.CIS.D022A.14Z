@@ -1,6 +1,15 @@
-message:
-	@echo This Makefile is not runnable.
-	@echo It's just for rules that are used in this repo.
+cpp_files = $(wildcard *.cpp) # -_- .cpp
+src_names = $(cpp_files:%.cpp=%)
+artifacts = $(cpp_files:%.cpp=%.exe)
+
+all: $(artifacts)
+	
+
+run-all: $(src_names:%=run~%)
+	
+
+clean: $(artifacts:%=del~%)
+	
 
 %.exe: %.cpp
 	@echo ----- MAK $< -----
@@ -14,12 +23,12 @@ run~%: %.exe
 rdl~%: run~% del~%
 	
 
-del~%: %.exe
-	@echo ----- DEL $< -----
-	@del $<
+del~%:
+	@echo ----- DEL $* -----
+	@del $*
 
-~cls:
+cls:
 	cls
 
-.PHONY: message
+.PHONY: all run-all cls
 .PRECIOUS: %.exe
