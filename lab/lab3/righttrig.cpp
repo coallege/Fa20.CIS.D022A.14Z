@@ -19,7 +19,6 @@ int main() {
 
 	c = {sqrt(pow(a, 2) + pow(b, 2))};
 
-
 	cout << "The sides of the right triangle are " << a << " and " << b << endl;
 
 	cout << fixed << setprecision(2);
