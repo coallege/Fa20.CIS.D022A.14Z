@@ -17,7 +17,7 @@ int main() {
 	float totalBill;
 
 	cout
-		<< setprecision(4) 
+		<< setprecision(4)
 		<< fixed // as a decimal
 		<< showpoint;	// include the stuff after the dot
 

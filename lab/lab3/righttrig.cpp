@@ -11,7 +11,7 @@ using namespace std;
 
 int main() {
 	float a;
-	float b; 
+	float b;
 	double c;
 
 	cout << "Please input the value of the two sides" << endl;
