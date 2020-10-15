@@ -18,7 +18,7 @@ auto main() -> int {
 	cout << fixed << setprecision(2);
 	cout << "You average monthly bill is " << avg << ". ";
 	if (avg < get<0>(TYPICAL_WATER_BILL)) {
-		cout << "Good job! You are not using a small";
+		cout << "Good job! You are using a small";
 	} else if (avg > get<1>(TYPICAL_WATER_BILL)) {
 		cout << "You are using an excessive";
 	} else {
