@@ -9,14 +9,25 @@ using namespace std;
 int main() {
 	float average;
 
-	cout << "Input your average:" << endl;
+	cout << "Input your average:\n";
 	cin >> average;
 
-	if (average > 60)
-		cout << "You Pass" << endl;
+	if (0 > average || average > 100) {
+		cout << "Invalid data\n";
+		return 1;
+	}
 
-	if (average < 60)
-		cout << "You Fail" << endl;
+	cout << "Grade: ";
+	if (average >= 90) {
+		cout << "A";
+	} else if (average >= 80) {
+		cout << "B";
+	} else if (average >= 60) {
+		cout << "You Pass";
+	} else {
+		cout << "You Fail";
+	}
+	cout << endl;
 
 	return 0;
 }

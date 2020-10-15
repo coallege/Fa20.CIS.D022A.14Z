@@ -5,8 +5,7 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
+int main() {
 	char year;
 	float gpa;
 
@@ -18,11 +17,11 @@ int main()
 	cout << "Now enter your GPA" << endl;
 	cin >> gpa;
 
-	if (gpa >= 2.0 && year == '4')
+	if (!(gpa < 2.0) && year == '4') {
 		cout << "It is time to graduate soon" << endl;
-
-	else if (year != '4' || gpa <2.0)
+	} else if (year != '4' || gpa < 2.0) {
 		cout << "You need more schooling" << endl;
+	}
 
 	return 0;
 }
