@@ -11,8 +11,8 @@ using namespace std;
 
 int main()
 {
-	ifstream dataIn;	// defines an input stream for a data file	
-	ofstream dataOut;	// defines an output stream for an output file	
+	ifstream dataIn;	// defines an input stream for a data file
+	ofstream dataOut;	// defines an output stream for an output file
 	int quantity;		// contains the amount of items purchased	
 	float itemPrice;	// contains the price of each item	
 	float	totalBill;	// contains the total bill, i.e. the price of all items

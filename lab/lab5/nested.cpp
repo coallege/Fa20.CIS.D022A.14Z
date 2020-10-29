@@ -1,41 +1,53 @@
 // This program finds the average time spent programming by a student
 // each day over a three day period.
 
-// PLACE YOUR NAME HERE
+// Cole Gannon
 
 #include <iostream>
 using namespace std;
 
-int main()
-{
+#define microbe "biology"
+
+int main() {
 	int numStudents;
-	float numHours, total, average;
-	int student, day = 0;	// these are the counters for the loops
+	int numDays;
 
-	cout << "This program will find the average number of hours a day"
-		 << " that a student spent programming over a long weekend\n\n";
-	cout << "How many students are there ?" << endl << endl;
+	cout <<
+		"This program will find the average number of hours a day "
+		"that a student spent programming over a long weekend.\n\n"
+		"How many students are there?\n"
+		"> ";
 	cin >> numStudents;
+	cin.clear();
+	cout <<
+		"How many days does this span?\n"
+		"> ";
+	cin >> numDays;
 
-	for (student = 1; student <= numStudents; student++)
-	{
-		total = 0;
+	for (int student{}; student ++< numStudents;) {
+		int totalProg{};
+		int totalBiol{};
+		for (int day{}; day ++< numDays;) {
+			cout << "Day " << day << "\n";
 
-		for (day = 1; day <= 3; day++)
-		{
-			cout << "Please enter the number of hours worked by student "
-				 << student << " on day " << day << "." << endl;
-			cin >> numHours;
+			cout << "Hours spent programming\n> ";
+			int tempProg;
+			cin >> tempProg;
 
-			total = total + numHours;
+			cout << "Hours spent studying " microbe "\n> ";
+			int tempBiol;
+			cin >> tempBiol;
+
+			totalProg += tempProg;
+			totalBiol += tempBiol;
 		}
 
-		average = total / 3;
-
-		cout << endl;
-		cout << "The average number of hours per day spent programming by "
-			 << "student " << student << " is " << average
-			 << endl << endl << endl;
+		cout
+			<< "Student #" << student << "\n"
+			"Average hours spent programming per day\n   "
+			<< double(totalProg) / numDays << "\n"
+			"Average hours spent studying " microbe "\n   "
+			<< double(totalBiol) / numDays << "\n";
 	}
 
 	return 0;

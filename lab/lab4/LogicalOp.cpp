@@ -1,6 +1,6 @@
 // This program illustrates the use of logical operators
 
-// PLACE  YOUR NAME HERE
+// Cole Gannon
 
 #include <iostream>
 using namespace std;

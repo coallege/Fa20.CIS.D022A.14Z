@@ -3,81 +3,104 @@
 // has chosen. A do-while loop repeats until the user selects item E
 // from the menu.
 
-// PLACE YOUR NAME HERE
+// Cole Gannon
 
+#include <ctype.h>
 #include <iostream>
+#include <stdexcept>
+#include <string>
 #include <iomanip>
+#include <cctype>
 using namespace std;
 
-int main()
-{
-	// Fill in the code to define an integer variable called number,
-	// a floating point variable called cost,
-	// and a character variable called beverage
+#define on(val) case val:
+#define end break;
 
-	bool validBeverage;
+const float A_COFFEE_COST   = 1.00;
+const float B_TEA_COST      = 0.75;
+const float C_HOT_CHOC_COST = 1.25;
+const float D_CAPPUCCN_COST = 2.50;
+
+int main() noexcept {
+	int numCups;
+	float cost;
+	char beverage;
+	string line; // because of how evil cin >> works, I'm just using getline.
 
 	cout << fixed << showpoint << setprecision(2);
 
-	do
-	{
-		cout << endl << endl;
-		cout << "Hot Beverage Menu" << endl << endl;
-		cout << "A: Coffee	$1.00" << endl;
-		cout << "B: Tea	$ .75" << endl;
-		cout << "C: Hot Chocolate	$1.25" << endl;
-		cout << "D: Cappuccino	$2.50" << endl << endl << endl;
+	loop: do {
+		cout <<
+			"Hot Beverage Menu\n\n"
+			"A: Coffee          $1.00\n"
+			"B: Tea             $ .75\n"
+			"C: Hot Chocolate   $1.25\n"
+			"D: Cappuccino      $2.50\n\n\n"
+			"Enter the beverage that you want. (A, B, C, or D)\n"
+			"Enter E to exit the program";
 
-		cout << "Enter the beverage A,B,C, or D you desire" << endl;
-		cout << "Enter E to exit the program" << endl << endl;
+		prompt_beverage:
+		cout << "\n> ";
+		line.clear();
+		getline(cin, line);
 
-		// Fill in the code to read in beverage
-
-		switch (beverage)
-		{
-			case 'a':
-			case 'A':
-			case 'b':
-			case 'B':
-			case 'c':
-			case 'C':
-			case 'd':
-			case 'D': validBeverage = true;
-				break;
-			default: validBeverage = false;
+		if (line.length() > 1) {
+			cout << "Input too long. Please try again";
+			goto prompt_beverage;
 		}
 
-		if (validBeverage == true)
-		{
-			cout << "How many cups would you like?" << endl;
+		beverage = tolower(line[0]);
 
-			// Fill in the code to read in number
+		switch (beverage) {
+			on('a')
+			on('b')
+			on('c')
+			on('d') end
+			on('e') {
+				cout << "Please come again\n";
+				goto the_end_of_the_file;
+			}
+			default: {
+				cout << "Invalid Selection. Please try again";
+				goto prompt_beverage;
+			}
 		}
 
-		// Fill in the code to begin a switch statement
-		// that is controlled by beverage
-		{
-			case 'a':
-			case 'A': cost = number * 1.0;
-				cout << "The total cost is $ " << cost << endl;
-				break;
+		cout << "How many cups would you like?";
+		prompt_cups:
+		cout << "\n> ";
+		line.clear();
+		getline(cin, line);
 
-				// Fill in the code to give the case for hot chocolate ($1.25 a cup)
-
-				// Fill in the code to give the case for tea ( $0.75 a cup)
-
-				// Fill in the code to give the case for cappuccino ($2.50 a cup)
-
-			case 'e':
-			case 'E': cout << " Please come again" << endl;
-				break;
-			default: cout <<	// Fill in the code to write a message
-						// indicating an invalid selection.
-				 cout << " Try again please" << endl;
+		try {
+			numCups = stoi(line);
+		} catch (invalid_argument e) {
+			cout << "Unable to parse \"" << line << "\", please try again.";
+			goto prompt_cups;
+		} catch (out_of_range e) {
+			cout << line << "Is too large or too small of a value. Please try again.";
+			goto prompt_cups;
 		}
 
-	}	// Fill in the code to finish the do-while statement with the
-		// condition that beverage does not equal E or e.
-
-		// Fill in the appropriate return statement
+		switch (beverage) {
+			on('a')
+				cost = numCups * A_COFFEE_COST;
+			end
+			on('b')
+				cost = numCups * B_TEA_COST;
+			end
+			on('c')
+				cost = numCups * C_HOT_CHOC_COST;
+			end
+			on('d')
+				cost = numCups * D_CAPPUCCN_COST;
+			end
+		}
+		cout
+			<< "The total cost is $"
+			<< cost
+			<< "\n-----------------------------------\n";
+	// horrible way to use a do-while but these are the requirements.
+	} while (beverage != 'e');
+	the_end_of_the_file:;
 }
