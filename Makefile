@@ -25,7 +25,7 @@ rdl~%: run~% del~%
 
 del~%:
 	@echo ----- DEL $* -----
-	@del $*
+	-@del $*
 
 cls:
 	cls
