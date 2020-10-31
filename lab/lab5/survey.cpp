@@ -23,7 +23,7 @@ int main() {
 	string line;
 	u16 personNum;
 	int bevNum;
-	do {
+	while(true) {
 		cout
 			<< "\nPlease input the favorite beverage of person #"
 			<< ++personNum
@@ -41,6 +41,10 @@ int main() {
 			continue;
 		}
 
+		if (bevNum == -1) {
+			break;
+		}
+
 		if (bevNum < 1 || bevNum > 4) {
 			cout << "Invalid selection.";
 			continue;
@@ -48,14 +52,14 @@ int main() {
 
 		// haha no branching
 		reinterpret_cast<u16*>(&count)[bevNum - 1]++;
-	} while(bevNum != -1);
+	};
 
 	cout
-		<< "The total number of people surveyed is " << personNum
+		<< "The total number of people surveyed is " << personNum - 1
 		<< ". The results are as follows:\n"
 		<< left
 		<< setw(17) << "\nBeverage" << "Number of Votes"
-		<< setw(17) << "\n*******************************"
+		<<             "\n*******************************"
 		<< setw(17) << "\nCoffee" << count.coffee
 		<< setw(17) << "\nTea" << count.tea
 		<< setw(17) << "\nCoke" << count.coke
