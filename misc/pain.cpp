@@ -1,4 +1,5 @@
-// #include <iostream>
+#include <iostream>
+using namespace std;
 
 // int main() {
 // 	int y = 6;
@@ -36,17 +37,33 @@
 //    return 0;
 // }
 
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
 
+// int main() {
+//    int myNumber;
+//    int yourNumber;
+
+//    myNumber = 2;
+//    yourNumber = (myNumber >= 5) ? myNumber + 3 : myNumber - 1;
+
+//    cout << yourNumber << endl;
+
+//    return 0;
+// }
+
+// #include <iostream>
 int main() {
-   int myNumber;
-   int yourNumber;
-
-   myNumber = 2;
-   yourNumber = (myNumber >= 5) ? myNumber + 3 : myNumber - 1;
-
-   cout << yourNumber << endl;
-
-   return 0;
+	// int x = 18;
+	// while (x > 0) {
+	// 	cout << x << " ";
+	// 	x = x / 3;
+	// }
+	int num;
+	int curr;
+	cin >> num;
+	for (int i = 0; i < num; ++i) {
+		cin >> curr;
+		cout << curr;
+	}
 }

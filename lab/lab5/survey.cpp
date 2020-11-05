@@ -13,7 +13,7 @@ struct count {
 	u16 oj{};
 };
 
-int main() {
+int main() noexcept {
 	struct count count;
 	cout <<
 		"This program performs a survey tally on beverages.\n"
