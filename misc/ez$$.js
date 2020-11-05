@@ -1,23 +1,4 @@
-// void async function ez$() {
-// 	const auth_token = JSON.parse(
-// 		localStorage["ember_simple_auth-session-5"]
-// 	).authenticated.session.auth_token;
-
-// 	const path = location.pathname;
-
-// 	const APIv1 = "https://zyserver.zybooks.com/v1";
-
-// 	const req_url = `${APIv1}${path}?auth_token=${auth_token}`;
-
-// 	const res = await fetch(req_url).then(data => data.json());
-
-// 	window.res = res;
-
-// 	console.clear();
-// 	console.log("ez$");
-// }();
-
-void function ez$$() {
+void async function ez$$() {
 	const auth_token = JSON.parse(
 		localStorage["ember_simple_auth-session-5"]
 	).authenticated.session.auth_token;
@@ -29,6 +10,8 @@ void function ez$$() {
 	const req_url = `${APIv1}${path}?auth_token=${auth_token}`;
 
 	const res = await fetch(req_url).then(data => data.json());
+
+	window.res = res;
 
 	console.clear();
 	console.log("ez$");

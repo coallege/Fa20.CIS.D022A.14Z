@@ -19,3 +19,12 @@ virtue of typing the letter twice in succession. And then you have `.c++`. As a
 living being, I'm sure you are aware that nearly everything sits within a grey
 area of good vs bad. If you're using `.c++`, I'm happy to report that you are one
 of those anomalies, resting entirely within the bad category!
+
+# Learnings
+
+- default param vals
+- ifstream and ofstream
+- uniform initialization
+- uniform assignment
+- struct vs class visibility
+- templates, kinda but not really
