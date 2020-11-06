@@ -9,43 +9,29 @@
 #include <string>
 using namespace std;
 
-// Fill in the prototype of the function writeProverb.
+#define quote "\""
 
-int main()
-{
+void writeProverb(const int wordCode);
+
+int main() {
+	cout << (
+		"Given the phrase:\n"
+		"\"Now is the time for all good men to come to the aid of their _____\"\n"
+		"Input a 1 if you want the sentence to be finished with party\n"
+		"Input any other number for the word country:\n"
+		"> "
+	);
+
 	int wordCode;
-
-	cout << "Given the phrase:" << endl;
-	cout << "Now is the time for all good men to come to the aid of their ___"
-		 << endl;
-
-	cout << "Input a 1 if you want the sentence to be finished with party"
-		 << endl;
-	cout << "Input any other number for the word country" << endl;
-
-	cout << "Please input your choice now" << endl;
-	cin >> wordCode; 
+	cin >> wordCode;
 	cout << endl;
 
 	writeProverb(wordCode);
-
-	return 0;
 }
 
-//	******************************************************************************
-//	writeProverb
-//
-//	task:	  This function prints a proverb. The function takes a number
-//	          from the call. If that number is a 1 it prints "Now is the time
-//	          for all good men to come to the aid of their party."
-//	          Otherwise, it prints "Now is the time for all good men
-//	          to come to the aid of their country."
-//	data in:  code for ending word of proverb (integer)
-//	data out: no actual parameter altered
-//
-//	*****************************************************************************
-
-void writeProverb(int number)
-{
-	// Fill in the body of the function to accomplish what is described above
+void writeProverb(const int c) {
+	cout
+		<< "Now is the time for all good men to come to the aid of their "
+		<< (c == 1 ? "part" : "countr")
+		<< "y.\n";
 }
