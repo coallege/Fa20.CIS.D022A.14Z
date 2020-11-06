@@ -2,76 +2,65 @@
 // and multiplies them to get grosspay.
 // It then calculates net pay by subtracting 15%
 
-// PLACE YOUR NAME HERE
+// Cole Gannon
 
 #include <iostream>
 #include <iomanip>
 using namespace std;
 
-// Function prototypes 
 void printDescription();
-void computePaycheck(float, int, float&, float&);
+/*
+E3: the gross and net vars are pass by reference.
+Because of E4, there is no function body.
+*/
+void computePaycheck(float, int, float &, float &);
 
-int main()
-{
+void computePaycheck(const float, const int);
+
+int main() {
 	float payRate;
-	float grossPay;
-	float netPay;
 	int hours;
 
 	cout << setprecision(2) << fixed;
-	cout << "Welcome to the Pay Roll Program" << endl;
 
-	printDescription();		// Call to Description function 
+	cout << "Welcome to the Payroll Program\n";
 
-	cout << "Please input the pay per hour" << endl;
+	printDescription();
+
+	cout << "Please input the pay per hour\n> ";
 	cin >> payRate;
 
-	cout << endl << "Please input the number of hours worked" << endl;
+	cout << "\nPlease input the number of hours worked\n> ";
 	cin >> hours;
 
-	cout << endl << endl;
+	computePaycheck(payRate, hours);
 
-	computePaycheck(payRate, hours, grossPay, netPay);
-
-	// Fill in the code to output grossPay
-
-	cout << "The net pay is $" << netPay << endl;
-
-	cout << "We hope you enjoyed this program" << endl;
-
-	return 0;
+	cout
+		<< "\nThe state demands 15% of your paycheck."
+		<< "\nYou are not in a position to refuse."
+		<< "\nHand it over, proletarian.\n";
 }
 
-//	********************************************************************
-//	printDescription
-//
-//	task:	  This function prints a program description
-//	data in:  none
-//	data out: no actual parameter altered
-//
-//	********************************************************************
-
-void printDescription() // The function heading
-{
-	cout << "************************************************" << endl << endl;
-	cout << "This program takes two numbers (payRate & hours)" << endl;
-	cout << "and multiplies them to get gross pay " << endl;
-	cout << "it then calculates net pay by subtracting 15%" << endl;
-	cout << "************************************************" << endl << endl;
+void printDescription() {
+	cout <<
+		"************************************************\n"
+		"This program takes two numbers (payRate & hours)\n"
+		"and multiplies them to get gross pay.\n"
+		"It then calculates net pay by subtracting 15%\n"
+		"************************************************\n\n";
 }
 
-//	*********************************************************************
-//	computePaycheck
-//
-//	task:	  This function takes rate and time and multiples them to
-//	          get gross pay and then finds net pay by subtracting 15%.
-//	data in:  pay rate and time in hours worked
-//	data out: the gross and net pay
-//
-//	********************************************************************
-
-void computePaycheck(float rate, int time, float& gross, float& net)
-{
-	// Fill in the code to find gross pay and net pay
+/*
+(rate, time) => (gross, net)
+where
+gross = rate * time
+net = gross - (gross * 0.15)
+*/
+void computePaycheck(const float rate, const int time) {
+	float gross;
+	double net;
+	net = {(gross = {rate * time}) * 0.85};
+	cout
+		<< "\nThe gross pay is $" << gross
+		<< "\nThe net pay is $" << net;
 }

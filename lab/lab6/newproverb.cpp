@@ -3,7 +3,7 @@
 // "Now is the time for all good men to come to the aid of their ___"
 // Inputting a 1 will use the word party. Any other number will use the word country.
 
-// PLACE YOUR NAME HERE
+// Cole Gannon
 
 #include <iostream>
 #include <string>
