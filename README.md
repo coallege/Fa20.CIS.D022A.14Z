@@ -28,3 +28,5 @@ of those anomalies, resting entirely within the bad category!
 - uniform assignment
 - struct vs class visibility
 - templates, kinda but not really
+- local static variables
+- pass by reference vs pointers

@@ -1,0 +1,23 @@
+MAIN0 OUTER BLOCK
+PI, RATE, findArea, findCircumference, radius are active here
+
+MAIN1 FIRST INNER BLOCK
+PI, RATE, findArea, findCircumference, radius, area are active here
+
+AREA FUNCTION
+PI, RATE, findArea, findCircumference, rad, answer are active here
+
+The radius = 12.00
+The area = 452.16
+
+MAIN1 SECOND INNER BLOCK
+PI, RATE, findArea, findCircumference, radius, radius, circumference are active here
+
+CIRCUMFERENCE FUNCTION
+PI, RATE, findArea, findCircumference, length, distance are active here
+
+The radius = 10.00
+The circumference = 62.80
+
+MAIN0 AFTER ALL DONE
+PI, RATE, findArea, findCircumference, radius are active here
