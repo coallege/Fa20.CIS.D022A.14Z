@@ -35,10 +35,10 @@ int main() {
 }
 
 void normalizeMoney(float &dollars, const int cents) {
-	float total = 0;
+	float total{};
 
 	// Fill in the definition of sum as a static local variable
-	static auto sum = 0.0;
+	static auto sum{0.0};
 
 	dollars = {static_cast<float>(cents / 100.0)};
 

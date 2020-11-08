@@ -131,3 +131,11 @@ using namespace std;
 
 //    return 0;
 // }
+
+// #include <fstream>
+
+// int main() {
+// 	ofstream file("pain");
+// 	file << file.is_open();
+// 	file.close();
+// }
