@@ -139,3 +139,71 @@ using namespace std;
 // 	file << file.is_open();
 // 	file.close();
 // }
+
+// void WaterTemperatureForCoffee(int temp) {
+//    if (temp < 195) {
+//       cout << "Too cold.";
+//    }
+//    else if ((temp >= 195) && (temp <= 205)) {
+//       cout << "Perfect temperature.";
+//    }
+//    else if (temp > 205) {
+//       cout << "Too hot.";
+//    }
+// }
+// int main() {
+//    WaterTemperatureForCoffee(205);
+//    WaterTemperatureForCoffee(190);
+//    return 0;
+// }
+
+// void PrintShippingCharge(double itemWeight) {
+//    if ((itemWeight > 0.0) && (itemWeight <= 10.0)) {    
+//       cout << (itemWeight * 0.75) << endl;
+//    }
+//   else if ((itemWeight > 10.0) && (itemWeight <= 15.0)) {
+//      cout << (itemWeight * 0.85) << endl;
+//    }
+//   else if ((itemWeight > 15.0) && (itemWeight <= 20.0)) {
+//       cout << (itemWeight * 0.95)<< endl;
+//    }
+// }
+// int main() {
+//    PrintShippingCharge(18);
+//    PrintShippingCharge(6);
+//    PrintShippingCharge(25);
+//    return 0;
+// }
+
+// int MyFct(int x) {
+//    int y;
+//    x = x * 2;
+//    y = x + 1;
+//    return y;
+// }
+// int main() {
+//    int a;
+//    a = 5;
+//    cout << a << " " << MyFct(a);
+// }
+
+// int DoCalc(int x, int y, int z = -1) {
+//    return x * y * z;
+// }
+
+// int main() {
+// 	cout << DoCalc(2, 3);
+// }
+
+int main() {
+	const int NUM_ELEMENTS = 5;
+int userVals[NUM_ELEMENTS];
+unsigned int i;
+userVals[0] = 1;
+userVals[1] = 7;
+userVals[2] = 4;
+   
+for (i = 0; i <= NUM_ELEMENTS; ++i) {
+   cout << userVals[i] << endl;
+}
+}

@@ -50,8 +50,8 @@ int main() {
 
 		Units *u;
 		switch (line[0]) {
-			case '1': u = {new Miles()};      break;
-			case '2': u = {new Kilometers()}; break;
+			case '1': u = {new Miles};      break;
+			case '2': u = {new Kilometers}; break;
 			default : return 0;
 		}
 

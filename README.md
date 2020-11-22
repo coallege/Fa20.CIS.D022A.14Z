@@ -30,3 +30,5 @@ of those anomalies, resting entirely within the bad category!
 - templates, kinda but not really
 - local static variables
 - pass by reference vs pointers
+- virtual methods
+- 

@@ -40,7 +40,7 @@ void what() {
 // https://stackoverflow.com/questions/19182425
 // <3
 template <class ...Cs>
-void convert_usd_to() {
+inline void convert_usd_to() {
 	comptime CURRENCY_WIDTH{7};
 
 	cout << "Convert USD to "; what<Cs...>();
