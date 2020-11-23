@@ -5,6 +5,7 @@
 // Cole Gannon
 
 #include <cstdint>
+#include <fstream>
 #include <iostream>
 #include <stdint.h>
 #include <vector>
@@ -18,10 +19,11 @@ int main() {
 
 	cout << "Please input a grade from 1 to 100 or a negative number to stop\n";
 
+	ifstream gradfile("gradfile.txt");
 	int input;
 
-	while (true) {
-		cin >> input;
+	do {
+		gradfile >> input;
 		if (input < 0) {
 			break;
 		}
@@ -32,7 +34,7 @@ int main() {
 		}
 
 		grades.push_back(input);
-	}
+	} while (!gradfile.eof());
 
 	cout
 		<< "\nThe average of all the grades is "

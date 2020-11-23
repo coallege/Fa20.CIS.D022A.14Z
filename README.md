@@ -66,3 +66,4 @@ nuh-uh, definitely don't see any parrallels to me. nope. not one bit.
 - pass by reference vs pointers
 - virtual methods
 - virtual method pure specifier `= 0`
+- const member functions
