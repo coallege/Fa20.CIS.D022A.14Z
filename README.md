@@ -58,8 +58,8 @@ nuh-uh, definitely don't see any parrallels to me. nope. not one bit.
 
 - default param vals
 - ifstream and ofstream
-- uniform initialization
-- uniform assignment
+- uniform initialization (`var{}`)
+- uniform assignment (`var = {}`)
 - struct vs class visibility
 - templates, kinda but not really
 - local static variables

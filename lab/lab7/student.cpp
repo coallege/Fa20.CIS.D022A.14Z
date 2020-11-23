@@ -69,7 +69,7 @@ public:
 
 	void average_grade(grade_consumer fn) {
 		auto avg_dec_grade = (
-			accumulate(this->grades, this->grades + this->grade_count, 0)
+			accumulate(this->grades, this->grades + this->grade_count, 0.)
 			/ this->grade_count
 		);
 		Grade avg_grade(avg_dec_grade);

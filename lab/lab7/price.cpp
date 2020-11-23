@@ -1,81 +1,53 @@
 // This program will read in prices and store them into a two-dimensional array.
 // It will print those prices in a table form.
 
-// PLACE YOUR NAME HERE
+// Cole Gannon
 
 #include <iostream>
 #include <iomanip>
+#include <algorithm>
+
 using namespace std;
 
-const int MAXROWS = 10;
-const int MAXCOLS = 10;
+using u16 = unsigned short;
 
-typedef float PriceType[MAXROWS][MAXCOLS];	// creates a new data type
-											// of a 2D array of floats
-
-void getPrices(PriceType, int&, int&);		// gets the prices into the array 
-void printPrices(PriceType, int, int);		// prints data as a table
-
-int main()
-{
-	int rowsUsed;			// holds the number of rows used
-	int colsUsed;			// holds the number of columns used
-	PriceType priceTable;	// a 2D array holding the prices
-
-	getPrices(priceTable, rowsUsed, colsUsed);		// calls getPrices to fill the array 
-	printPrices(priceTable, rowsUsed, colsUsed);	// calls printPrices to display array
-
-	return 0;
+template <class T>
+T prompt(const char *prompt) {
+	T out;
+	cout << prompt << "\n> ";
+	cin >> out;
+	cin.clear();
+	cin.ignore();
+	return out;
 }
 
-//*******************************************************************************
-//	getPrices
-//
-//	task:	  This procedure asks the user to input the number of rows and
-//	          columns. It then asks the user to input (rows * columns) number of
-//	          prices. The data is placed in the array.
-//	data in:  none
-//	data out: an array filled with numbers and the number of rows
-//	          and columns used.
-//
-//*******************************************************************************
+const auto dwidth = 10;
 
-void getPrices(PriceType table, int& numOfRows, int& numOfCols)
-{
-	cout << "Please input the number of rows from 1 to " << MAXROWS << endl;
-	cin >> numOfRows;
+int main() {
+	u16 rows{prompt<u16>("Input the number of rows")};
+	u16 cols{prompt<u16>("Input the number of cols")};
+	auto len{rows * cols};
 
-	cout << "Please input the number of columns from 1 to " << MAXCOLS << endl;
-	cin >> numOfCols;
+	double *prices{new double[len]}; // leak leak
 
-	for (int row = 0; row < numOfRows; row++)
-	{
-		for (int col = 0; col < numOfCols; col++)
-		{
-			// Fill in the code to read and store the next value in the array
-		}
+	for (int i{}; i < len; ++i) {
+		prices[i] = prompt<double>("Input the price of an item");
 	}
-}
 
-//***************************************************************************
-//	printPrices
-//
-//	task:	  This procedure prints the table of prices
-//	data in:  an array of floating point numbers and the number of rows
-//	          and columns used.
-//	data out: none
-//
-//****************************************************************************
-
-void printPrices(PriceType table, int numOfRows, int numOfCols)
-{
-	cout << fixed << showpoint << setprecision(2);
-
-	for (int row = 0; row < numOfRows; row++)
-	{
-		for (int col = 0; col < numOfCols; col++)
-		{
-			// Fill in the code to print the table
+	cout
+		<< fixed << setprecision(2)
+		<< setw(cols * (dwidth + 1)) << setfill('-') << '\n'
+		<< setfill(' ');
+	double *curr{prices};
+	for (int y{}; y < rows; ++y) {
+		for (int x{}; x < cols; ++x) {
+			cout << setw(dwidth) << *curr++ << " ";
 		}
+		cout << '\n';
 	}
+
+	cout
+		<< "\nHighest Price: " << setw(dwidth) << *max_element(prices, prices + len)
+		<< "\n Lowest Price: " << setw(dwidth) << *min_element(prices, prices + len)
+		<< '\n';
 }

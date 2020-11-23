@@ -2,81 +2,125 @@
 // of years. It will print the year and transactions in a table format.
 // It will calculate year and quarter total transactions.
 
-// PLACE YOUR NAME HERE
+// Cole Gannon
 
 #include <iostream>
 #include <iomanip>
+#include <numeric>
+#include <vector>
+#include <sstream>
+
 using namespace std;
 
-const int MAXYEAR = 10;
-const int MAXCOL = 5;
+using u16 = unsigned short;
+using u32 = unsigned int;
 
-typedef int SalesType[MAXYEAR][MAXCOL];	// creates a new 2D integer data type 
-
-void getSales(SalesType, int&);		// places sales figures into the array
-void printSales(SalesType, int);	// prints data as a table
-void printTableHeading();			// prints table heading
-
-int main()
-{
-	int yearsUsed;		// holds the number of years used
-	SalesType sales;	// 2D array holding the sales transactions 
-
-	getSales(sales, yearsUsed);		// calls getSales to put data in array
-	printTableHeading();			// calls procedure to print the heading 
-	printSales(sales, yearsUsed);	// calls printSales to display table
-
-	return 0;
+template <class T>
+T prompt(const char *prompt) {
+	T out;
+	cout << prompt << "\n> ";
+	cin >> out;
+	cin.clear();
+	cin.ignore();
+	return out;
 }
 
-//*****************************************************************************
-//	printTableHeading
-//
-//	task:	  This procedure prints the table heading
-//	data in:  none
-//	data out: none
-//
-//*****************************************************************************
+class Year {
+public:
+	u16 year;
+	/// transaction count per quarter
+	u32 trans[4]{};
 
-void printTableHeading()
-{
-	cout << setw(30) << "YEARLY QUARTERLY SALES" << endl << endl << endl;
+	u32 total;
 
-	cout << setw(10) << "YEAR" << setw(10) << "Quarter 1"
-		 << setw(10) << "Quarter 2" << setw(10) << "Quarter 3"
-		 << setw(10) << "Quarter 4" << endl;
+	Year() {
+		auto year = prompt<int>("Enter the year or a negative number to stop");
+		if (year < 0) {
+			throw 0;
+		} else {
+			this->year = year;
+		}
+
+		for (int i{}; i < 4; ++i) {
+			cout
+				<< "Enter the number of transactions for Quarter "
+				<< i + 1
+				<< " of the year "
+				<< year;
+			this->trans[i] = prompt<u32>("");
+		}
+
+		this->total = accumulate(this->trans, this->trans + 4, 0);
+	}
+};
+
+inline void table_heading() {
+	cout <<
+		"YEARLY QUARTERLY SALES\n\n\n"
+		"           YEAR"
+		"      Quarter 1      Quarter 2"
+		"      Quarter 3      Quarter 4"
+		"      Yearly Total\n";
 }
 
-//*****************************************************************************
-//	getSales
-//
-//	task:	  This procedure asks the user to input the number of years.
-//	          For each of those years it asks the user to input the year
-//	          (e.g. 2004), followed by the sales figures for each of the
-//	          4 quarters of that year. That data is placed in a 2D array
-//	data in:  a 2D array of integers
-//	data out: the total number of years
-//
-//*****************************************************************************
+const auto w{15};
+#define wout setw(w)
 
-void getSales(SalesType	table, int&	numOfYears)
-{
-	cout << "Please input the number of years (1-" << MAXYEAR << ")" << endl;
-	cin >> numOfYears;
+#define bar setw(w * 6) << setfill('-') << "" << setfill(' ') << '\n'
 
-	// Fill in the code to read and store the next value
-}
+int main() {
+	cout << fixed << setprecision(2);
+	vector<Year *> years{};
 
-//*****************************************************************************
-//	printSales
-//
-//	task:	  This procedure prints out the information in the array
-//	data in:  an array containing sales information
-//	data out: none
-//
-//*****************************************************************************
+	while (true) {
+		try {
+			years.push_back(new Year());
+		} catch (...) {
+			break;
+		}
+	}
 
-void printSales(SalesType table, int numOfYears)
-{
-	// Fill in the code to print the table
+	cout
+		<< '\n'
+		<< "YEARLY QUARTERLY SALES\n"
+		<< bar
+		<< wout << "YEAR";
+
+	for (int i{}; i < 4;) {
+		stringstream ss{};
+		ss << "Quarter " << ++i;
+		cout << wout << ss.str();
+	}
+
+	cout
+		<< wout << "Year Total"
+		<< '\n';
+
+	for (auto y : years) {
+		cout << setw(w) << y->year;
+		for (int q{}; q < 4; ++q) {
+			cout << wout << y->trans[q];
+		}
+		cout << wout << y->total << '\n';
+	}
+
+	cout
+		<< bar
+		<< wout << "Average";
+
+	auto year_count = years.size();
+	for (int q{}; q < 4; ++q) {
+		long double running_total;
+		for (int i{}; i < year_count; ++i) {
+			running_total += years[i]->trans[q];
+		}
+		cout << wout << running_total / year_count;
+	}
+
+	unsigned long running_year_total{};
+	for (auto y : years) {
+		running_year_total += y->total;
+	}
+
+	cout << wout << running_year_total / static_cast<double>(year_count) << '\n';
 }
