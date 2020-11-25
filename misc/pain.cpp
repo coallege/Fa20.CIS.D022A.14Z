@@ -195,15 +195,47 @@ using namespace std;
 // 	cout << DoCalc(2, 3);
 // }
 
-int main() {
-	const int NUM_ELEMENTS = 5;
-int userVals[NUM_ELEMENTS];
-unsigned int i;
-userVals[0] = 1;
-userVals[1] = 7;
-userVals[2] = 4;
+// int main() {
+// 	const int NUM_ELEMENTS = 5;
+// int userVals[NUM_ELEMENTS];
+// unsigned int i;
+// userVals[0] = 1;
+// userVals[1] = 7;
+// userVals[2] = 4;
    
-for (i = 0; i <= NUM_ELEMENTS; ++i) {
-   cout << userVals[i] << endl;
+// for (i = 0; i <= NUM_ELEMENTS; ++i) {
+//    cout << userVals[i] << endl;
+// }
+// }
+
+#include <iostream>
+using namespace std;
+void selectSort(int numbers[], int numSize) 
+{
+   int i;
+   int j;
+   int indx;
+   int temp;
+   for (i = 0; i < numSize; ++i) 
+   {
+      indx = i;
+      for (j = i + 1; j < numSize; ++j) 
+      {
+         if ( numbers[j] < numbers[indx] ) {   indx = j;   }
+      }
+      temp = numbers[i];
+      numbers[i] = numbers[indx];
+      numbers[indx] = temp;
+   }
 }
+int main() 
+{
+   int numbers[] = {9,5,7,3,1,8};
+   const int N_SIZE = 6;
+   int i;
+   selectSort(numbers,N_SIZE);
+   for (i = 0; i < N_SIZE; ++i)
+      cout << numbers[i] << ' ';
+   cout << endl;
+   return 0;
 }
