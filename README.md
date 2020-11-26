@@ -2,7 +2,7 @@
 
 ![](misc/footgun.png)
 
-[The Packed Variadic Template of Doom](lab/lab6/convert_money.cpp)
+[The Packed Variadic Template of Doom](lab/lab6/convert_money.cpp#L67)
 
 ## Rant 1
 
