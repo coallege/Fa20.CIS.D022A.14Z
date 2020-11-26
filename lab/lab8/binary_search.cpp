@@ -1,69 +1,55 @@
 // This program demonstrates a Binary Search
 
-// PLACE YOUR NAME HERE
+// Cole Gannon
 
 #include <iostream>
+#include <array>
 using namespace std;
 
-int binarySearch(int[], int, int);	// function prototype 
-const int SIZE = 16;
-
-int main()
-{
-	int found, value;
-
-	int array[] = { 34, 19, 19, 18, 17, 13, 12, 12, 12, 11, 9, 5, 3, 2, 2, 0 };
-	// array to be searched
-
-	cout << "Enter an integer to search for:" << endl;
-	cin >> value;
-
-	found = binarySearch(array, SIZE, value);
-	// function call to perform the binary search
-	// on array looking for an occurrence of value 
-
-	if (found == -1)
-		cout << "The value " << value << " is not in the list" << endl;
-	else
-		cout << "The value " << value << " is in position number "
-		     << found + 1 << " of the list" << endl;
-
-	return 0;
+template <class T>
+inline T prompt(const char *prompt) {
+	T out;
+	cout << prompt << "\n> ";
+	cin >> out;
+	cin.clear();
+	cin.ignore();
+	return out;
 }
 
-//*******************************************************************
-//	binarySearch
-//
-//  task:	       This searches an array for a particular value
-//  data in:	   List of values in an orderd array, the number of
-//	               elements in the array, and the value searched for
-//	               in the array
-//  data returned: Position in the array of the value or -1 if value
-//	               not found
-//
-//*******************************************************************
+template <class T, size_t len>
+int bin_search(const T (&ary)[len], const T value) {
+	int first{};
+	int last{len - 1};
+	int middle;
 
-int binarySearch(int array[], int numElems, int value)	// function heading
-{
-	int first = 0;				// First element of list
-	int last = numElems - 1;	// last element of the list
-	int middle;					// variable containing the current
-								// middle value of the list
+	while (first <= last) {
+		int width{last - first};
+		middle = {first + (width / 2)};
 
-	while (first <= last)
-	{
-		middle = first + (last - first) / 2;
+		auto current{ary[middle]};
 
-		if (array[middle] == value)
-			return middle;		// if value is in the middle, we are done
-
-		else if (array[middle]<value)
-			last = middle - 1;	// toss out the second remaining half of
-
-		else
-			first = middle + 1;	// toss out the first remaining half of
-								// the array and search the second
+		if (current == value) {
+			return middle;
+		} else if (current < value) {
+			last = middle - 1;
+		} else {
+			first = middle + 1;
+		}
 	}
 
-	return -1;	// indicates that value is not in the array
+	return -1;
+}
+
+int main() {
+	int array[] = { 34, 19, 19, 18, 17, 13, 12, 12, 12, 11, 9, 5, 3, 2, 2, 0 };
+
+	int needle = prompt<int>("Enter an integer to be searched for");
+	int found = bin_search(array, needle);
+
+	cout << "The value " << needle << ' ';
+	if (~found) {
+		cout << "is in position number " << found + 1 << " of the list\n";
+	} else {
+		cout << "is not in the list\n";
+	}
 }

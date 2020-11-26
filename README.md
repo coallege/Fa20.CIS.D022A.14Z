@@ -2,6 +2,8 @@
 
 ![](misc/footgun.png)
 
+[The Packed Variadic Template of Doom](lab/lab6/convert_money.cpp)
+
 ## Rant 1
 
 Against my style, I'm going to use tabs since it's what the prof probably wants
@@ -28,7 +30,7 @@ So I tested it out and I'm pretty sure my prof doesn't read my code.
 I don't mind it. Actually, I kinda do and I wanted to see if I could at least
 get some aknowledgement, even if it was "wow this is garbage".
 I decided to commit absolute curse with macros in
-[lab6/travel](labs/lab6/travel.cpp). I was aiming for the verbal/text equivalent
+[lab6/travel](lab/lab6/travel.cpp). I was aiming for the verbal/text equivalent
 of a concerned or disapproving look but I got nothing. Still got 100 so I can't
 complain but I think I'm gonna stop trying to make cool or elegant things
 starting with lab7. Since I'm not on tsor, the motivation of also showing other
