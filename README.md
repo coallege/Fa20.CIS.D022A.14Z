@@ -1,5 +1,16 @@
 # Fa20.CIS.D022A.14Z
 
+[**De Anza College Academic Honesty Policy**](ACADEMIC_HONESTY.md)
+
+It's not a good idea to copy my stuff and submit it as your own.
+Nearly every file in here is very... unique, shall we say.
+
+> How do I satisfy the requirements while doing things in an unintended way?
+
+That's how I programmed most of the things in here.
+Submitting any of these assignments is gonna give you a bad look even if the
+prof thinks that it was original.
+
 ![](misc/footgun.png)
 
 [The Packed Variadic Template of Doom](lab/lab6/convert_money.cpp#L67)
