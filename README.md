@@ -4,12 +4,8 @@
 
 It's not a good idea to copy my stuff and submit it as your own.
 Nearly every file in here is very... unique, shall we say.
-
-> How do I satisfy the requirements while doing things in an unintended way?
-
-That's how I programmed most of the things in here.
-Submitting any of these assignments is gonna give you a bad look even if the
-prof thinks that it was original.
+Basically, don't steal my code for school purposes because that's super lame.
+No harm in looking at it for inspiration, I suppose.
 
 ![](misc/footgun.png)
 
