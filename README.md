@@ -56,6 +56,16 @@ ignoring them.
 
 nuh-uh, definitely don't see any parrallels to me. nope. not one bit.
 
+## Rant 4
+
+Well, I think I have finished everything and I have consumed the last of my
+lemon bars in celebration. All that I have to do now is wait for the final on
+December 11th and maybe retake one quiz.
+Overall, quality class.
+I learned a lot, and not just on my own.
+This class actually taught me things I didn't know and forced me to learn things
+that I wouldn't've learned on my own. Thanks, Prof. Eftekhari!
+
 # Learnings
 
 - default param vals
@@ -69,3 +79,9 @@ nuh-uh, definitely don't see any parrallels to me. nope. not one bit.
 - virtual methods
 - virtual method pure specifier `= 0`
 - const member functions
+- [stream error states](http://www.cplusplus.com/reference/ios/basic_ios/rdstate/)
+- [stream formatting flags](http://www.cplusplus.com/reference/ios/ios_base/fmtflags/)
+- `cin >>` weirdness and the need for `.clear()` and `.ignore()`
+- throw, try, catch
+- references (`&`)
+- probably much more but these are all the ones that are easily explainable

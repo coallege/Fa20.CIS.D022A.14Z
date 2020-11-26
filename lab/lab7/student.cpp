@@ -5,7 +5,11 @@
 // One function will give the numeric average of their grades.
 // The other function will give a letter grade to that average.
 // Grades are assigned on a 10 point spread.
-// 90-100 A	80-89 B	70-79 C	60-69 D	Below 60 F
+// 90-100 A
+// 80-89 B
+// 70-79 C
+// 60-69 D
+// Below 60 F
 
 // Cole Gannon
 
